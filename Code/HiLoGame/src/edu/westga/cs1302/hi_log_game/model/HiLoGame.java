@@ -58,7 +58,7 @@ public class HiLoGame {
 	public String makeGuess(int guess) {
 		String result = null;
 		this.guessCount++;
-		if (this.guessCount >= 3) {
+		if (this.guessCount > 3) {
 			result = "Too many guesses.";
 		} else if (guess < this.targetNumber) {
 			result = "Too low.";

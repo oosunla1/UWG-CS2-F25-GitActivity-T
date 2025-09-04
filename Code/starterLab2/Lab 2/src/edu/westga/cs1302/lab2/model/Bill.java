@@ -1,16 +1,16 @@
-package edu.westga.cs1302.lab1.model;
+package edu.westga.cs1302.lab2.model;
 
 import java.util.ArrayList;
 
 /** Stores information for a bill.
  * 
  * @author CS 1302
- * @version Fall 2025!
+ * @version Fall 2025
  */
 public class Bill {
-	public static final double TIP = 0.2;
-	public static final double TAX = 0.1;
-	public static final double SUB_TOTAL = 0.0;
+	public static final double TIP_RATE = 0.2;
+	public static final double TAX_RATE = 0.1;
+	
 	private ArrayList<BillItem> items;
 	
 	/** Create a new empty Bill
@@ -36,15 +36,16 @@ public class Bill {
 		}
 		this.items.add(item);
 	}
-	
-	/** Gets the item on the bill
+
+	/** Returns the list of items in the bill
 	 * 
 	 * @precondition none
-	 * @postcondition none
+	 * @postconition none
 	 * 
-	 * @return item
+	 * @return the list of items in the bill
 	 */
 	public ArrayList<BillItem> getItems() {
 		return this.items;
 	}
+
 }
