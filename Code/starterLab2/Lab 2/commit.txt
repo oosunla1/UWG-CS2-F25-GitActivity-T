@@ -1,3 +1,9 @@
+commit 79ed3422c51f674f0080c30f1e8dc84644b5dee3
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thurs Sep 4 6:56:47 2025 -0400
+
+    Added test cases for the Bill's addItem method. Tests run.
+
 commit b804a2eb20c28a61e77637bbfbb41a9c0c46fc62
 Author: oosunla1 <oosunla1@my.westga.edu>
 Date:   Thurs Sep 4 5:05:30 2025 -0400

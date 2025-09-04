@@ -1,0 +1,30 @@
+Added test cases for Bill's addItem method. Tests run.
+
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=true
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+filter.lfs.required=true
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+user.name=oosunla1
+user.email=oosunla1@my.westga.edu
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+remote.origin.url=https://github.com/oosunla1/UWG-CS2-F25-GitActivity-T.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.dev.remote=origin
+branch.dev.merge=refs/heads/dev
