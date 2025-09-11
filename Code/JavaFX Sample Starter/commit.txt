@@ -1,3 +1,26 @@
+commit a2e1b661f50eede313ff23b6dd227a2ebdc765f5
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 14:43:19 2025 -0400
+
+    Implement addItem method and connect UI
+
+    Implemented addItem to read input, create BillItem, add to Bill
+    Generated and displayed bill text using BillView
+
+commit d507fa557f50a10b23a4f1d248f94a3f591af43b
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 13:08:31 2025 -0400
+
+    Designed a GUI
+
+    Implemented Labels, Text Fields, a Text Area, and a Button into the GUI.
+
+commit 66b6ba8a7be4b0a1e757a711a7fee99f51eb5b30
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 10:51:23 2025 -0400
+
+    Setting Up JavaFX Lab3
+    
 commit de2d719336e9eea0c15b701233cf0ca031275d53
 Author: oosunla1 <oosunla1@my.westga.edu>
 Date:   Thurs Sep 4 8:43:49 2025 -0400

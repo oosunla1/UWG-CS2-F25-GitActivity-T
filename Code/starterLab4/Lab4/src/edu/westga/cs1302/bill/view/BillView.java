@@ -19,7 +19,7 @@ public class BillView {
 	 * 
 	 * @return a String containing the list of bill items and total for the bill
 	 */
-	public String getText(Bill bill) {
+	public static String getText(Bill bill) {
 		String text = "ITEMS" + System.lineSeparator();
 		double subTotal = 0.0;
 		for (BillItem item : bill.getItems()) {
