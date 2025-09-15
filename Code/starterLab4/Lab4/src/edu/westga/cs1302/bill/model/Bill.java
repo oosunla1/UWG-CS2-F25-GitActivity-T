@@ -28,7 +28,7 @@ public class Bill {
 	
 	/** Adds the item to the bill
 	 * 
-	 * @precondition item != null
+	 * @precondition item != null && items does not contain null values
 	 * @postcondition item is added to the list of items in the bill
 	 * 
 	 * @param item the item to be added to the bill

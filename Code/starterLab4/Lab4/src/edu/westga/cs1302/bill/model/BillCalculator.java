@@ -1,6 +1,5 @@
 package edu.westga.cs1302.bill.model;
 
-//import java.util.ArrayList;
 //import java.util.Arrays;
 //import edu.westga.cs1302.bill.model.Bill;
 //import edu.westga.cs1302.bill.model.BillItem;
@@ -14,9 +13,9 @@ public class BillCalculator {
 	
 	/** Calculates the subtotal of an array of BillItem items.
 	 * 
+	 * @precondition item != null
 	 * @param items an array of BillItem objects whose amounts will be added
 	 * @return the subtotal as the sum of all item amounts
-	 * @throws IllegalArgumentException if the bill contains any null values
 	 */
 	public static double calculateSubtotal(BillItem[] items) {
         double subtotal = 0.0;
