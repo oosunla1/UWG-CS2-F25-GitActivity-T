@@ -13,7 +13,7 @@ public class BillCalculator {
 	
 	/** Calculates the subtotal of an array of BillItem items.
 	 * 
-	 * @precondition item != null
+	 * @precondition item != null && items does not contain null elements
 	 * @param items an array of BillItem objects whose amounts will be added
 	 * @return the subtotal as the sum of all item amounts
 	 */
