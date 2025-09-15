@@ -11,7 +11,6 @@ package edu.westga.cs1302.bill.model;
  * @version Fall 2025
  */
 public class BillCalculator {
-	private static double subtotal = 0.0;
 	
 	/** Calculates the subtotal of an array of BillItem items.
 	 * 
@@ -20,7 +19,8 @@ public class BillCalculator {
 	 * @throws IllegalArgumentException if the bill contains any null values
 	 */
 	public static double calculateSubtotal(BillItem[] items) {
-        for (BillItem item : items) {
+        double subtotal = 0.0;
+		for (BillItem item : items) {
             if (item == null) {
                 throw new IllegalArgumentException("bill must not contain null values.");
             }
@@ -37,6 +37,7 @@ public class BillCalculator {
 	 * @return the tax amount for the bill
 	 */
 	public static double calculateTax(BillItem[] items) {
+		double subtotal = calculateSubtotal(items);
 		return subtotal * Bill.TAX_RATE;
 	}
 	
@@ -46,6 +47,7 @@ public class BillCalculator {
 	 * @return the tip amount for the bill
 	 */
 	public static double calculateTip(BillItem[] items) {
+		double subtotal = calculateSubtotal(items);
 		return subtotal * Bill.TIP_RATE;
 	}
 	
@@ -55,6 +57,7 @@ public class BillCalculator {
 	 * @return the total cost for the items on the bill
 	 */
 	public static double calculateTotal(BillItem[] items) {
+		double subtotal = calculateSubtotal(items);
 		return subtotal + subtotal * Bill.TAX_RATE + subtotal * Bill.TIP_RATE;
 	}
 }
