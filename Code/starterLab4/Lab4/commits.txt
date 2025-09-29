@@ -1,0 +1,120 @@
+commit a696f40a4768496d033b5b1fb150e791122d9dea
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Mon Sep 15 07:45:00 2025 -0400
+
+    Updated getText Method
+    
+    Updated getText method so it works with BillCalculator.
+    Checked work and Checkstyles.
+
+commit 20f02e2c82b8de840a3abfeb088e01786144ee62
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Mon Sep 15 07:12:02 2025 -0400
+
+    Tests Run
+    
+    Implemented more tests for the BillCalculator class and they run.
+    Adjusted Javadoc for calculateSubtotal; replaced @throws with @precondition.
+
+commit e3501ccf6019efb94fd42353ef669ec267946f8d
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Mon Sep 15 05:21:00 2025 -0400
+
+    Fixed BillCalculator after failed test
+    
+    Removed static subtotal field to avoid a stale shared state.
+    Updated calculateTax, calculateTip, and calculateTotal to call calculateSubtotal in them.
+    Created a JUnit Test Case for BillCalculator class.
+    Started testing for multiple items in bill and null item in bill.
+
+commit 65a72eb03f39a815e7765711aca39e41f704e3c1
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Mon Sep 15 03:28:57 2025 -0400
+
+    Created BillCalculator Class
+    
+    Implemented the BillCalculator class to handle calculating the subtotal, tax, tip, and total for an Array of BillItem objects.
+    Added an IllegalArgumentException in case any null values are in the Array.
+    Created test package for BillCalculator class.
+
+commit cc6105e59b2ecaa05b61e5c6e0beaf7fe6803b71
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 11 12:32:01 2025 -0400
+
+    Update for Previous Commit
+    
+    Forgot to save work after converting field to final.
+    Now it is saved.
+    This commit also includes some changes for the next part like: creating a BillCalculator class, a javadoc comment for that class, and creating a bill calculator test package.
+
+commit 7bfe701f09711fb910e8e857f44aeb399d1122e2
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 11 12:00:05 2025 -0400
+
+    Converting Billitem's Fields to Final
+    
+    Converted the fields in BillItems constructor to final, so that the value
+    cannot be changed.
+
+commit a2e1b661f50eede313ff23b6dd227a2ebdc765f5
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 14:43:19 2025 -0400
+
+    Implement addItem method and connect UI
+    
+    Implemented addItem to read input, create BillItem, add to Bill
+    Generated and displayed bill text using BillView
+
+commit d507fa557f50a10b23a4f1d248f94a3f591af43b
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 13:08:31 2025 -0400
+
+    Designed a GUI
+    
+    Implemented Labels, Text Fields, a Text Area, and a Button into the GUI.
+
+commit 66b6ba8a7be4b0a1e757a711a7fee99f51eb5b30
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 10:51:23 2025 -0400
+
+    Setting Up JavaFX Lab3
+    
+    Added bill model classes to javafx sample project
+    Renamed project and base package for lab3 along with corresponding references.
+    Did not incorporate tests for Bill project classes yet.
+
+commit de2d719336e9eea0c15b701233cf0ca031275d53
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 08:43:21 2025 -0400
+
+    Added test cases for BillView's getText method. Tests run.
+
+commit 79ed3422c51f674f0080c30f1e8dc84644b5dee3
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 06:46:36 2025 -0400
+
+    Added test cases for Bill's addItem method. Tests run.
+
+commit 976c15f0de011dddebf6f36208103dbef80eb737
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 05:43:08 2025 -0400
+
+    Added test cases for the BillItem constructor. All tests run.
+
+commit b804a2eb20c28a61e77637bbfbb41a9c0c46fc62
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Sep 4 05:05:17 2025 -0400
+
+    Added test cases for the BillItem constructor. All tests run.
+
+commit c9fccfdf8266eb14a07d7df52d8a494cb829368e
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Mon Aug 25 16:35:05 2025 -0400
+
+    New file update
+
+commit ad135cbf109a32cf4a594e8eb08b4e68ffbaae90
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Tue Aug 19 10:04:04 2025 -0400
+
+    Initial commit
