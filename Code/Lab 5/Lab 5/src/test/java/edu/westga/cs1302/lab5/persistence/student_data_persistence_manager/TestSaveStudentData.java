@@ -38,10 +38,8 @@ class TestSaveStudentData {
 		
 		File inputFile = new File(StudentDataPersistenceManager.FILE_LOCATION);
 		try (Scanner reader = new Scanner(inputFile)) {
-			assertTrue(reader.hasNextLine(), "expecting two lines in the file");
-			assertEquals("Tobi", reader.nextLine());
-			assertTrue(reader.hasNextLine());
-			assertEquals("99", reader.nextLine());
+			assertTrue(reader.hasNextLine(), "expecting one line in the file");
+			assertEquals("Tobi,99", reader.nextLine());
 			assertFalse(reader.hasNextLine(), "checking if file only has one line");
 		}
 	}
@@ -58,22 +56,15 @@ class TestSaveStudentData {
 		
 		File inputFile = new File(StudentDataPersistenceManager.FILE_LOCATION);
 		try (Scanner reader = new Scanner(inputFile)) {
-			assertTrue(reader.hasNextLine(), "expecting six line in the file");
-			assertEquals("Tobi", reader.nextLine());
-			assertTrue(reader.hasNextLine());
-			assertEquals("99", reader.nextLine());
+			assertTrue(reader.hasNextLine(), "expecting three line in the file");
+			assertEquals("Tobi,99", reader.nextLine());
 			
 			assertTrue(reader.hasNextLine());
-			assertEquals("Denise", reader.nextLine());
-			assertTrue(reader.hasNextLine());
-			assertEquals("89", reader.nextLine());
+			assertEquals("Denise,89", reader.nextLine());
 			
 			assertTrue(reader.hasNextLine());
-			assertEquals("Tim", reader.nextLine());
-			assertTrue(reader.hasNextLine());
-			assertEquals("76", reader.nextLine());
-			
-			assertFalse(reader.hasNextLine(), "checking if file only has six lines");
+			assertEquals("Tim,76", reader.nextLine());
+			assertFalse(reader.hasNextLine(), "checking if file only has three lines");
 		}
 	}
 }
