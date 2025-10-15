@@ -14,4 +14,8 @@ public class Ascending implements Comparator<Task> {
 		return t2.getPriority().compareTo(t1.getPriority());
 	}
 	
+    @Override
+    public String toString() {
+        return "Ascending";
+    }
 }
