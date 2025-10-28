@@ -10,69 +10,121 @@ import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
 
 class TestCompare {
 
-    private Ascending ascending = new Ascending();
+	@Test
+	void testO1IsNull() {
+		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("name", "desc", TaskPriority.HIGH);
+		Ascending ascending = new Ascending();
+		
+		assertThrows(IllegalArgumentException.class, ()->{ascending.compare(null, o2);});
+	}
 
 	@Test
-    void testCompareLowAndLow() {
-        Task t1 = new Task("Shopping", "Buy halloween costume", TaskPriority.LOW);
-        Task t2 = new Task("Walk", "Walk 2 miles", TaskPriority.LOW);
-        assertEquals(0, ascending.compare(t1, t2), "LOW vs LOW should return 0");
-    }
+	void testO2IsNull() {
+		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("name", "desc", TaskPriority.HIGH);
+		Ascending ascending = new Ascending();
+		
+		assertThrows(IllegalArgumentException.class, ()->{ascending.compare(o1, null);});
+	}
+	
+	@Test
+	void testO1HighAndO2MEDIUM() {
+		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("name", "desc", TaskPriority.MEDIUM);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
 
-    @Test
-    void testCompareMediumAndMedium() {
-        Task t1 = new Task("Wash car", "Get car detailed", TaskPriority.MEDIUM);
-        Task t2 = new Task("Read", "Read first half of assigned book", TaskPriority.MEDIUM);
-		assertEquals(0, ascending.compare(t1, t2), "MEDIUM vs MEDIUM should return 0");
-    }
+		assertTrue(result > 0);
+	}
+	
+	@Test
+	void testO1HighAndO2LOW() {
+		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("name", "desc", TaskPriority.LOW);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
+		
+		assertTrue(result > 0);
+	}
+	
+	@Test
+	void testO1MEDIUMAndO2High() {
+		Task o1 = new Task("name", "desc", TaskPriority.MEDIUM);
+		Task o2 = new Task("name", "desc", TaskPriority.HIGH);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
 
-    @Test
-    void testCompareHighAndHigh() {
-        Task t1 = new Task("Finish Lab 6", "Commit Part A. Start Part B and C", TaskPriority.HIGH);
-        Task t2 = new Task("Meet with advisor", "Plan Spring classes", TaskPriority.HIGH);
-        assertEquals(0, ascending.compare(t1, t2), "HIGH vs HIGH should return 0");
-    }
-    
-    @Test
-    void testCompareLowAndMedium() {
-        Task t1 = new Task("Shopping", "Buy halloween costume", TaskPriority.LOW);
-        Task t2 = new Task("Read", "Read first half of assigned book", TaskPriority.MEDIUM);
-        assertTrue(ascending.compare(t1, t2) < 0, "LOW should come before MEDIUM");
-    }
+		assertTrue(result < 0);
+	}
+	
+	@Test
+	void testO1MEDIUMAndO2Medium() {
+		Task o1 = new Task("name", "desc", TaskPriority.MEDIUM);
+		Task o2 = new Task("name", "desc", TaskPriority.MEDIUM);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
 
-    @Test
-    void testCompareLowAndHigh() {
-        Task t1 = new Task("Shopping", "Buy halloween costume", TaskPriority.LOW);
-        Task t2 = new Task("Finish Lab 6", "Commit Part A. Start Part B and C", TaskPriority.HIGH);
-        assertTrue(ascending.compare(t1, t2) < 0, "LOW should come before HIGH");
-    }
-    
-    @Test
-    void testCompareMediumAndLow() {
-        Task t1 = new Task("Wash car", "Get car detailed", TaskPriority.MEDIUM);
-        Task t2 = new Task("Shopping", "Buy halloween costume", TaskPriority.LOW);
-        assertTrue(ascending.compare(t1, t2) > 0, "MEDIUM should come after LOW");
-    }
+		assertTrue(result == 0);
+	}
+	
+	@Test
+	void testO1MediumAndO2Low() {
+		Task o1 = new Task("name", "desc", TaskPriority.MEDIUM);
+		Task o2 = new Task("name", "desc", TaskPriority.LOW);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
 
-    @Test
-    void testCompareMediumAndHigh() {
-        Task t1 = new Task("Read", "Read first half of assigned book", TaskPriority.MEDIUM);
-        Task t2 = new Task("Meet with advisor", "Plan Spring classes", TaskPriority.HIGH);
-        assertTrue(ascending.compare(t1, t2) < 0, "MEDIUM should come before HIGH");
-    }
+		assertTrue(result > 0);
+	}
+	
+	@Test
+	void testO1LowAndO2Low() {
+		Task o1 = new Task("name", "desc", TaskPriority.LOW);
+		Task o2 = new Task("name", "desc", TaskPriority.LOW);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
 
-    @Test
-    void testCompareHighAndLow() {
-        Task t1 = new Task("Finish Lab 6", "Commit Part A. Start Part B and C", TaskPriority.HIGH);
-        Task t2 = new Task("Shopping", "Buy halloween costume", TaskPriority.LOW);
-        assertTrue(ascending.compare(t1, t2) > 0, "HIGH should come after LOW");
-    }
-    
-    @Test
-    void testCompareHighAndMedium() {
-        Task t1 = new Task("Finish Lab 6", "Commit Part A. Start Part B and C", TaskPriority.HIGH);
-        Task t2 = new Task("Read", "Read first half of assigned book", TaskPriority.MEDIUM);
-        assertTrue(ascending.compare(t1, t2) > 0, "HIGH should come after MEDIUM");
-    }
+		assertTrue(result == 0);
+	}
+	
+	@Test
+	void testO1LowAndO2Medium() {
+		Task o1 = new Task("name", "desc", TaskPriority.LOW);
+		Task o2 = new Task("name", "desc", TaskPriority.MEDIUM);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
+
+		assertTrue(result < 0);
+	}
+	
+	@Test
+	void testO1LowAndO2High() {
+		Task o1 = new Task("name", "desc", TaskPriority.LOW);
+		Task o2 = new Task("name", "desc", TaskPriority.HIGH);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
+
+		assertTrue(result < 0);
+	}
+	
+	@Test
+	void testO1HighAndO2High() {
+		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("name", "desc", TaskPriority.HIGH);
+		Ascending ascending = new Ascending();
+		
+		int result = ascending.compare(o1, o2);
+
+		assertTrue(result == 0);
+	}
 
 }

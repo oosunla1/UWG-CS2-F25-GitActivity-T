@@ -34,11 +34,22 @@ public class MainWindow {
     @FXML private TextField selectedPriority;
     @FXML private ListView<Task> tasks;
     @FXML private ComboBox<Comparator<Task>> order;
-    
+
+    /** Add a new task with the provided information to the listview.
+     * 
+     * @precondition none
+     * @postcondition A task will be added to the listview with 
+     * 							  1) a name matching the text of the name textfield, 
+     * 							  2) a description matching the text of the description textarea,
+     * 							  3) a priority matching the selected value of the priority combobox,
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
     @FXML 
     void addTask(ActionEvent event) {
     	try {
     		this.tasks.getItems().add(new Task(this.name.getText(), this.description.getText(), this.priority.getValue()));
+    		this.sortTasks(event);
     	} catch (IllegalArgumentException error) {
     		Alert alert = new Alert(AlertType.ERROR);
     		alert.setContentText(error.getMessage());
@@ -46,6 +57,14 @@ public class MainWindow {
     	}
     }
 
+    /** Display the priority and description of the task selected in the listview.
+     * 
+     * @precondition none
+     * @postcondition the description for the selected task will be displayed in the selectedDescription text area &&
+     * 				  the priority for the selected task will be displayed in the selectedPriority text field
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
     @FXML
     void selectTask(MouseEvent event) {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
@@ -55,6 +74,13 @@ public class MainWindow {
     	}
     }
 
+    /** Remove the currently selected task.
+     * 
+     * @precondition none
+     * @postcondition task selected in the listview will be removed
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
     @FXML
     void removeTask(ActionEvent event) {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
@@ -63,14 +89,29 @@ public class MainWindow {
     	}
     }
 
+    /** Update the description of the selected task.
+     * 
+     * @precondition none
+     * @postcondition description for the task selected in the listview will be updated to match the text in the selectedDescription text area.
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
     @FXML
     void updateDescription(ActionEvent event) {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
     	if (selectedTask != null) {
     		selectedTask.setDescription(this.selectedDescription.getText());
+    		this.sortTasks(event);
     	}
     }
 
+    /** Display the count of tasks for each priority.
+     * 
+     * @precondition none
+     * @postcondition count of tasks for each priority are displayed in the appropriate labels.
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
     @FXML
     void countPriorities(ActionEvent event) {
     	this.highCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.HIGH, this.tasks.getItems())));
@@ -78,20 +119,32 @@ public class MainWindow {
     	this.lowCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.LOW, this.tasks.getItems())));
     }
     
+    /** Sort tasks based on the selected ordering.
+     * 
+     * @precondition none
+     * @postcondition tasks in the listview are sorted based on the provided ordering.
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
     @FXML
     void sortTasks(ActionEvent event) {
     	if (this.order.getValue() != null) {
     		this.tasks.getItems().sort(this.order.getValue());
-    	}	
+    	}
     }
 
     /** Perform any needed initialization of UI components and underlying objects.
      * 
+     * @precondition none
+     * @postcondition none
+     * 
      */
-    @SuppressWarnings("unchecked")
-	public void initialize() {
+    @FXML
+    public void initialize() {
     	this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
     	this.priority.setValue(this.priority.getItems().get(0));
-    	this.order.getItems().addAll(new Ascending(), new Descending());
+    	this.order.getItems().add(new Ascending());
+    	this.order.getItems().add(new Descending());
+    	this.priority.setValue(this.priority.getItems().get(0));
     }
 }

@@ -1,3 +1,33 @@
+commit ead5218b478710ad18482b81a783185cad82d317
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Tue Oct 14 21:44:47 2025 -0400
+
+    Support Sorting Tasks
+    
+    Implemented functionality to sort the set of tasks in the ListView stored by MainWindow.
+    Added two comparators (Ascending and Descending) to the Sort Task ComboBox.
+    Implemented toString method for visual purposes to the Ascending and Descending classes.
+
+commit 4dc3d239e98aba2057d2bad770fb20a6035fbe96
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Oct 9 16:21:19 2025 -0400
+
+    Descending Comparison of Tasks and it's Test Cases
+    
+    Created Descending class.
+    Implemented a new Comparator, named Descending, that compares tasks based on priority.
+    Created tests to check that the Descending comparator correctly orders Task objects from high to low priority, and returns the comparison values negative, zero, or positive.
+
+commit ea991da32be19f5544175b0a78e068f031aa10c3
+Author: oosunla1 <oosunla1@my.westga.edu>
+Date:   Thu Oct 9 16:03:56 2025 -0400
+
+    Ascending Comparison of Tasks and it's Tests
+    
+    Implemented a new Comparator, named Ascending, that compares tasks based on priority.
+    Created tests to check that the Ascending comparator correctly orders Task objects from low to high priority, and returns the comparison values negative, zero, or positive.
+    Created Ascending class. ^^
+
 commit 6f824dd61453f73cc56caa34a0d55bf1565b8167
 Author: oosunla1 <oosunla1@my.westga.edu>
 Date:   Thu Oct 2 05:35:12 2025 -0400
