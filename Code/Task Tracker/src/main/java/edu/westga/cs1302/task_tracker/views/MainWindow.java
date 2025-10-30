@@ -115,17 +115,35 @@ public class MainWindow {
         }
     }
     
-    /** Display a list of subtasks for the currently selected task
+    /** shows a list of subtasks for the currently selected task
      * 
      * @param event we will not use this parameter, only here due to JavaFX Library requirement
      */
     @FXML
-    void displaySubTask(MouseEvent event) {
+    void showSubTask(MouseEvent event) {
         Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
             this.subTasks.getItems().setAll(selectedTask.getSubTasks());
         } else {
             this.subTasks.getItems().clear();
+        }
+    }
+    
+    /** Displays a subtask k in a popup alert window whenever a subtask is selected
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
+    @FXML
+    void displaySubTask(MouseEvent event) {
+        Task selectedSubTask = this.subTasks.getSelectionModel().getSelectedItem();
+
+        if (selectedSubTask != null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Subtask");
+            alert.setHeaderText(selectedSubTask.getName());
+            alert.setContentText("Priority: " + selectedSubTask.getPriority() + "\n"
+                                + "Description: " + selectedSubTask.getDescription());
+            alert.showAndWait();
         }
     }
 
