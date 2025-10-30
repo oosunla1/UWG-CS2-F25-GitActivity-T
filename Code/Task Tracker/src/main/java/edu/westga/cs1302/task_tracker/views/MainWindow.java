@@ -96,10 +96,23 @@ public class MainWindow {
     @FXML
     void selectTask(MouseEvent event) {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-    	if (selectedTask != null) {
-    		this.selectedPriority.setText(selectedTask.getPriority().toString());
-    		this.selectedDescription.setText(selectedTask.getDescription());
-       	}
+
+        if (selectedTask == null) {
+            selectedTask = this.subTasks.getSelectionModel().getSelectedItem();
+        }
+
+        if (selectedTask != null) {
+            this.selectedPriority.setText(selectedTask.getPriority().toString());
+            this.selectedDescription.setText(selectedTask.getDescription());
+
+            if (this.tasks.getItems().contains(selectedTask)) {
+                this.subTasks.getItems().setAll(selectedTask.getSubTasks());
+            }
+        } else {
+            this.selectedPriority.clear();
+            this.selectedDescription.clear();
+            this.subTasks.getItems().clear();
+        }
     }
     
     /** Display a list of subtasks for the currently selected task
