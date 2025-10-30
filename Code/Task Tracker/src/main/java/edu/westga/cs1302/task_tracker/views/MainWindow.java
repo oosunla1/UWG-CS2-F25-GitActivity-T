@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import edu.westga.cs1302.task_tracker.model.AscendingByName;
 import edu.westga.cs1302.task_tracker.model.AscendingByPriority;
+import edu.westga.cs1302.task_tracker.model.ContainerTask;
 import edu.westga.cs1302.task_tracker.model.DescendingByName;
 import edu.westga.cs1302.task_tracker.model.DescendingByPriority;
 import edu.westga.cs1302.task_tracker.model.Task;
@@ -66,7 +67,22 @@ public class MainWindow {
      */
     @FXML
     void addSubTask(ActionEvent event) {
+    	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
 
+        if (selectedTask == null) {
+            return;
+        }
+        String subtaskName = this.name.getText();
+        String subtaskDesc = this.description.getText();
+        Task.TaskPriority subtaskPriority = this.priority.getValue();
+        Task newSubtask = new Task(subtaskName, subtaskDesc, subtaskPriority);
+        
+        ContainerTask updatedTask = selectedTask.addTask(newSubtask);
+        int index = this.tasks.getItems().indexOf(selectedTask);
+        this.tasks.getItems().set(index, updatedTask);
+        selectedTask = updatedTask;
+        this.subTasks.getItems().setAll(selectedTask.getSubTasks());
+        
     }
 
     /** Display the priority and description of the task selected in the listview.
@@ -83,7 +99,7 @@ public class MainWindow {
     	if (selectedTask != null) {
     		this.selectedPriority.setText(selectedTask.getPriority().toString());
     		this.selectedDescription.setText(selectedTask.getDescription());
-    	}
+       	}
     }
     
     /** Display a list of subtasks for the currently selected task
@@ -92,7 +108,12 @@ public class MainWindow {
      */
     @FXML
     void displaySubTask(MouseEvent event) {
-
+        Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            this.subTasks.getItems().setAll(selectedTask.getSubTasks());
+        } else {
+            this.subTasks.getItems().clear();
+        }
     }
 
     /** Remove the currently selected task.
