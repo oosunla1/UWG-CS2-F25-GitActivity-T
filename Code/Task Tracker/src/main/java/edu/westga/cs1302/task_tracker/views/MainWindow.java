@@ -34,6 +34,7 @@ public class MainWindow {
     @FXML private ComboBox<TaskPriority> priority;
     @FXML private TextArea selectedDescription;
     @FXML private TextField selectedPriority;
+    @FXML private ListView<Task> subTasks;
     @FXML private ListView<Task> tasks;
     @FXML private ComboBox<Comparator<Task>> order;
 
@@ -58,6 +59,15 @@ public class MainWindow {
     		alert.showAndWait();
     	}
     }
+    
+    /** Add a new sub task to the listview.
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
+    @FXML
+    void addSubTask(ActionEvent event) {
+
+    }
 
     /** Display the priority and description of the task selected in the listview.
      * 
@@ -74,6 +84,15 @@ public class MainWindow {
     		this.selectedPriority.setText(selectedTask.getPriority().toString());
     		this.selectedDescription.setText(selectedTask.getDescription());
     	}
+    }
+    
+    /** Display a list of subtasks for the currently selected task
+     * 
+     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     */
+    @FXML
+    void displaySubTask(MouseEvent event) {
+
     }
 
     /** Remove the currently selected task.
