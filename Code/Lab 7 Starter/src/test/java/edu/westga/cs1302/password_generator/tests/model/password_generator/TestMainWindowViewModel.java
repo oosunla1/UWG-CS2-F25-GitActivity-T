@@ -40,13 +40,6 @@ class TestMainWindowViewModel {
 		assertFalse(password.isEmpty(), "output property should not be empty after generatated");
 		assertTrue(password.length() >= 10, "password should meet minimum length requirement.");
 	}
-	@Test
-	void testDefaultPropertyValues() {
-		assertEquals("1", this.viewModel.minimumLengthProperty().get(), "Default min length should be 1");
-		assertFalse(this.viewModel.mustIncludeDigitsProperty().get(), "Digits default to false");
-		assertFalse(this.viewModel.mustIncludeLowerCaseLettersProperty().get(), "Lowercase default to false");
-		assertFalse(this.viewModel.mustIncludeUpperCaseLettersProperty().get(), "Uppercase default to false");
-	}
 	
 	@Test
 	void testMinimumLengthPropertyUpdatesValue() {

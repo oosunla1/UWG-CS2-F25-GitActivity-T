@@ -29,7 +29,7 @@ public class MainWindowViewModel {
 		this.mustIncludeLowerCaseLetters = new SimpleBooleanProperty(false);
 		this.mustIncludeUpperCaseLetters = new SimpleBooleanProperty(false);
 		this.minimumLength = new SimpleStringProperty("1");
-		this.output = new SimpleStringProperty("Password3");
+		this.output = new SimpleStringProperty("");
 		
 		Random randomRange = new Random();
         this.generator = new PasswordGenerator(randomRange.nextLong());
