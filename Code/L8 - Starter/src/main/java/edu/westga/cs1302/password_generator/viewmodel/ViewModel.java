@@ -7,6 +7,8 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /** Manages utilizing the model and makes properties available to bind the UI elements.
  * 
@@ -23,6 +25,7 @@ public class ViewModel {
 	private StringProperty errorText;
 	
     private PasswordGenerator generator;
+    private ObservableList<String> passwordList;
 	
 	/** Initialize the properties for the viewModel
 	 */
@@ -34,7 +37,9 @@ public class ViewModel {
 		
 		this.password = new SimpleStringProperty("");
 		this.errorText = new SimpleStringProperty("");
-
+		
+		this.passwordList = FXCollections.observableArrayList();
+		
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
 	}
@@ -86,6 +91,14 @@ public class ViewModel {
 	public StringProperty getErrorText() {
 		return this.errorText;
 	}
+	
+	/** Returns a list of passwords generated
+	 * 
+	 * @return the password list
+	 */
+	public ObservableList<String> getPasswordList() {
+        return this.passwordList;
+    }
 
 	/** Generates a password using the minimum length, require digit, require lower case, and require upper case property values.
 	 * 
@@ -118,6 +131,7 @@ public class ViewModel {
     	String password = this.generator.generatePassword();
     	
     	this.password.setValue(password);
+        this.passwordList.add(password);
     }
 
 }
