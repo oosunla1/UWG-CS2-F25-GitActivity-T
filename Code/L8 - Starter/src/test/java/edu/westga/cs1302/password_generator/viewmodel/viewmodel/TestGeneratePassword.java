@@ -44,7 +44,7 @@ class TestGeneratePassword {
 	@Test
 	void testOnePasswordAddedToList() {
 	    ViewModel vm = new ViewModel();
-	    vm.getMinimumLength().setValue("3");
+	    vm.getMinimumLength().setValue("2");
 	    vm.generatePassword();
 	    
 	    assertEquals(1, vm.getPasswordList().size(), "the password list should have one password");
