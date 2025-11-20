@@ -99,7 +99,6 @@ public class MainWindow {
     	        int value = Integer.parseInt(newValue);
     	        invalid = value <= 0;
     	    }
-
     	    this.minLengthErrorText.setVisible(invalid);
     	});
     	
