@@ -95,6 +95,14 @@ public class MainWindowViewModel {
 	public void addContact() throws IllegalArgumentException {
 		Contact newContact = new Contact(this.name.get(), this.phoneNumber.get());
 
+		if (this.contactByName.containsKey(newContact.getName())) {
+	        throw new IllegalArgumentException("A contact with this name already exists.");
+	    }
+
+	    if (this.contactByPhone.containsKey(newContact.getPhoneNumber())) {
+	        throw new IllegalArgumentException("A contact with this number already exists.");
+	    }
+		
 		this.contacts.add(newContact);
 
 		this.contactByName.put(newContact.getName(), newContact);

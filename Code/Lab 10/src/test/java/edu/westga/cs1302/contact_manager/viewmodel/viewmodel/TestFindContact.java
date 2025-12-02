@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.contact_manager.viewmodel.MainWindowViewModel;
 
-class TestMainWindowViewModel {
+class TestFindContact {
 	private MainWindowViewModel vm;
     
 	@Test
