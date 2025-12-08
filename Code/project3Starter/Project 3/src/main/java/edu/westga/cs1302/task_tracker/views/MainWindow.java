@@ -9,7 +9,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-/** Controller class for MainWindow of the Task Tracker system.
+/** Controller class for MainWindow of the Collection system.
  * 
  * @author CS 1302
  * @version Fall 2025
@@ -23,7 +23,7 @@ public class MainWindow {
 
     /**
      * Adds a new collection to the ListView using the text entered
-     * in the collectionNameField.
+     * in the collection name field.
      *
      * @precondition none
      * @postcondition A new collection with the given name is added to the list
