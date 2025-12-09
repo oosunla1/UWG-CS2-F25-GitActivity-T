@@ -18,10 +18,14 @@ import javafx.scene.control.TextField;
  */
 public class MainWindow {
 	@FXML private Button addCollection;
+	@FXML private Button addComicButton;
     @FXML private ListView<Collection> collections;
+    @FXML private ListView<String> comicsListView;
     @FXML private TextField name;
     @FXML private Button removeCollectionButton;
+    @FXML private Button removeComicButton;
     @FXML private MenuItem removeCollectionMenu;
+    @FXML private MenuItem removeComicMenu;
     
     private MainWindowViewModel vm;
 
@@ -52,6 +56,32 @@ public class MainWindow {
     void removeCollection(ActionEvent event) {
     	this.vm.removeSelectedCollection();
     }
+    
+    /**
+     * Adds a new comic to the collection using
+     *
+     * @precondition none
+     * @postcondition A new comic is added to the selected collection
+     *
+     * @param event required by JavaFX but not used
+     */
+    @FXML
+    void addComic(ActionEvent event) {
+        
+    }
+    
+    /**
+     * Removes the currently selected comic from the ListView.
+     *
+     * @precondition none
+     * @postcondition The selected comic is removed, if one exists.
+     *
+     * @param event required by JavaFX but not used
+     */
+    @FXML
+    void removeComic(ActionEvent event) {
+        
+    }
 
     /** Perform any needed initialization of UI components and underlying objects.
      * 
@@ -73,5 +103,6 @@ public class MainWindow {
         this.collections.setContextMenu(menu);
         
         removeItem.setOnAction(event -> this.vm.removeSelectedCollection());
+        
     }
 }
