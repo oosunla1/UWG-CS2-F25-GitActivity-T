@@ -1,5 +1,8 @@
 package edu.westga.cs1302.task_tracker.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,6 +15,7 @@ public class Collection {
 
 	private final String name;
 	private final ObservableList<Comic> comics;
+	private final Map<String, Comic> comicSearchFor;
 	
 	/** Create a new Collection with the provided information.
 	 * 
@@ -28,6 +32,7 @@ public class Collection {
 		}
 		this.name = name;
 		this.comics = FXCollections.observableArrayList();
+		this.comicSearchFor = new HashMap<>();
 	}
 	
 	/** Return the name of the collection
@@ -65,6 +70,8 @@ public class Collection {
             throw new IllegalArgumentException("Comic must not be null");
         }
         this.comics.add(comic);
+        String key = comic.getTitle().toLowerCase() + " " + comic.getIssueNumber();
+        this.comicSearchFor.put(key, comic);
     }
 	
 	/** Removes a comic to this collection.
@@ -76,8 +83,24 @@ public class Collection {
 	 */
 	public void removeComic(Comic comic) {
         this.comics.remove(comic);
+        String key = comic.getTitle().toLowerCase() + " " + comic.getIssueNumber();
+        this.comicSearchFor.remove(key, comic);
     }
 
+	/** Searches for a comic using the given title and issue number
+	 * 
+	 * @param title the title of the comic being searched
+	 * @param issue the issue number of the comic being searched
+	 * @return 
+	 */
+	public Comic findComic(String title, String issue) {
+	    if (title == null || issue == null) {
+	        return null;
+	    }
+	    String key = title.toLowerCase() + " " + issue;
+	    return this.comicSearchFor.get(key);
+	}
+	
 	/** Returns the name of the collection to represent the collection as a String
 	 * 
 	 * @precondition none
