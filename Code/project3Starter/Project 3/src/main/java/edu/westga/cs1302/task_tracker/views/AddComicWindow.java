@@ -46,6 +46,8 @@ public class AddComicWindow {
     public void setViewModel(MainWindowViewModel vm) {
     	this.vm = vm;
 		this.title.textProperty().bindBidirectional(this.vm.newComicTitle());
-        this.issueNumber.textProperty().bindBidirectional(this.vm.newComicIssue());		
+        this.issueNumber.textProperty().bindBidirectional(this.vm.newComicIssue());
+        this.confirmButton.disableProperty().bind(
+        	    this.vm.newComicTitle().isEmpty().or(this.vm.newComicIssue().isEmpty()));
 	}
 }

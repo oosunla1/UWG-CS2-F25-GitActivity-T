@@ -6,7 +6,6 @@ import edu.westga.cs1302.task_tracker.model.Collection;
 import edu.westga.cs1302.task_tracker.model.Comic;
 import edu.westga.cs1302.task_tracker.viewmodel.MainWindowViewModel;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -139,7 +138,6 @@ public class MainWindow {
         removeComicItem.setOnAction(event -> this.vm.removeSelectedComic());
         
         this.comics.setItems(this.vm.getComicsForCollection());
-
         this.vm.selectedCollection().addListener((obs, oldCollection, newCollection) -> {
             if (newCollection != null) {
                 this.comics.setItems(newCollection.getComics());
@@ -147,5 +145,6 @@ public class MainWindow {
                 this.comics.setItems(FXCollections.observableArrayList());
             }
         });
+        
     }
 }
