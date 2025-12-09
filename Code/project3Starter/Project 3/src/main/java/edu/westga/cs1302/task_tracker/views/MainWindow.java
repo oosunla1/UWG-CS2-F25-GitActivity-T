@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
@@ -111,6 +112,15 @@ public class MainWindow {
     @FXML
     void searchComic(ActionEvent event) {
     	Collection selectedCollection = this.vm.selectedCollection().get();
+    	if (selectedCollection == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Collection Selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a collection to search.");
+            alert.showAndWait();
+            return;
+        }
+    	
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FindComicWindow.fxml"));
             Parent root = loader.load();
