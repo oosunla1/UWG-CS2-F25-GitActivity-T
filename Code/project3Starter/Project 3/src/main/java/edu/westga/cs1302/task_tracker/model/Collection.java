@@ -91,7 +91,7 @@ public class Collection {
 	 * 
 	 * @param title the title of the comic being searched
 	 * @param issue the issue number of the comic being searched
-	 * @return 
+	 * @return the location of comic searched for, if one exists
 	 */
 	public Comic findComic(String title, String issue) {
 	    if (title == null || issue == null) {
