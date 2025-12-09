@@ -1,6 +1,6 @@
 package edu.westga.cs1302.task_tracker.model;
 
-/** Provides utility functions for working with tasks
+/** Stores basic information for a Comic
  * 
  * @author CS 1302
  * @version Fall 2025
@@ -24,6 +24,9 @@ public class Comic {
         }
         if (issueNumber == null || issueNumber.isEmpty()) {
             throw new IllegalArgumentException("issue number must not be null or empty");
+        }
+        if (!issueNumber.matches("\\d+")) {
+            throw new IllegalArgumentException("issue number must contain only digits");
         }
         this.title = title;
         this.issueNumber = issueNumber;
