@@ -65,6 +65,7 @@ public class MainWindow {
     	this.name.textProperty().bindBidirectional(this.vm.newCollection());
     	this.collections.setItems(this.vm.getCollections());
     	this.vm.selectedCollection().bind(this.collections.getSelectionModel().selectedItemProperty());
+    	this.addCollection.disableProperty().bind(this.vm.newCollection().isEmpty());
     	
     	ContextMenu menu = new ContextMenu();
         MenuItem removeItem = new MenuItem("Remove Collection");
