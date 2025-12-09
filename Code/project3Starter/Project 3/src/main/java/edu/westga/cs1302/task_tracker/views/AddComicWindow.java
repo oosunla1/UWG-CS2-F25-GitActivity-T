@@ -1,5 +1,6 @@
 package edu.westga.cs1302.task_tracker.views;
 
+import edu.westga.cs1302.task_tracker.viewmodel.MainWindowViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,14 +18,34 @@ public class AddComicWindow {
 	@FXML private Button confirmButton;
 	@FXML private Button cancelButton;
 	
+	private MainWindowViewModel vm;
+	
     @FXML
     void cancelComic(ActionEvent event) {
-    	((Stage) this.cancelButton.getScene().getWindow()).close();
+    	this.closeWindow();
     }
 
     @FXML
     void confirmComic(ActionEvent event) {
-    	((Stage) this.confirmButton.getScene().getWindow()).close();
+    	this.vm.addComic();
+        this.closeWindow();
     }
-
+    
+    /**
+     * Close this window.
+     */
+    private void closeWindow() {
+        Stage stage = (Stage) this.confirmButton.getScene().getWindow();
+        stage.close();
+    }
+    
+    /** Initialize the controller with the ViewModel.
+     * 
+     * @param vm the MainWindowViewModel to use
+     */
+    public void setViewModel(MainWindowViewModel vm) {
+    	this.vm = vm;
+		this.title.textProperty().bindBidirectional(this.vm.newComicTitle());
+        this.issueNumber.textProperty().bindBidirectional(this.vm.newComicIssue());		
+	}
 }

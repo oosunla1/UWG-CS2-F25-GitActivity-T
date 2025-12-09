@@ -2,6 +2,8 @@ package edu.westga.cs1302.task_tracker.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /** Stores basic information for a Collection
  * 
@@ -11,7 +13,7 @@ import java.util.List;
 public class Collection {
 
 	private final String name;
-	private final List<Comic> comics;
+	private final ObservableList<Comic> comics;
 	
 	/** Create a new Collection with the provided information.
 	 * 
@@ -27,7 +29,7 @@ public class Collection {
 			throw new IllegalArgumentException("name must not be empty");
 		}
 		this.name = name;
-		this.comics = new ArrayList<>();
+		this.comics = FXCollections.observableArrayList();
 	}
 	
 	/** Return the name of the collection
@@ -48,7 +50,7 @@ public class Collection {
 	 * 
 	 * @return the comics in the selected collection
 	 */
-	public List<Comic> getComics() {
+	public ObservableList<Comic> getComics() {
         return this.comics;
     }
 	

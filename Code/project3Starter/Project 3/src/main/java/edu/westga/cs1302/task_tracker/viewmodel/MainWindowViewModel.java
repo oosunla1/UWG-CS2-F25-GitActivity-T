@@ -140,11 +140,11 @@ public class MainWindowViewModel {
     public ObservableList<Comic> getComicsForCollection() {
         Collection selected = this.selectedCollection.get();
         if (selected == null) {
-            return FXCollections.observableArrayList(); 
+            return FXCollections.observableArrayList();
         }
-        return FXCollections.observableArrayList(selected.getComics());
+        return (ObservableList<Comic>) selected.getComics();
     }
-    
+
     /** Adds a new comic to the selected collection.
      * 
      * @precondition title and issue number cannot be null
