@@ -8,18 +8,18 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.task_tracker.model.Task;
 import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
-import edu.westga.cs1302.task_tracker.model.TaskUtility;
+import edu.westga.cs1302.task_tracker.model.Comic;
 
 class TestCountPriority {
 	
 	@Test
 	void testNullForTasksList() {
-		assertThrows(IllegalArgumentException.class, ()->{TaskUtility.countOfPriority(TaskPriority.HIGH, null);});
+		assertThrows(IllegalArgumentException.class, ()->{Comic.countOfPriority(TaskPriority.HIGH, null);});
 	}
 	
 	@Test
 	void testEmptyTasksList() {
-		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, new ArrayList<Task>());
+		int result = Comic.countOfPriority(TaskPriority.HIGH, new ArrayList<Task>());
 		
 		assertEquals(0, result, "checking count");
 	}
@@ -29,7 +29,7 @@ class TestCountPriority {
 		ArrayList<Task> tasks = new ArrayList<Task>();
 		tasks.add(new Task("name", "description", TaskPriority.HIGH));
 		
-		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
+		int result = Comic.countOfPriority(TaskPriority.HIGH, tasks);
 		
 		assertEquals(1, result, "checking count");
 	}
@@ -39,7 +39,7 @@ class TestCountPriority {
 		ArrayList<Task> tasks = new ArrayList<Task>();
 		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
 		
-		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
+		int result = Comic.countOfPriority(TaskPriority.HIGH, tasks);
 		
 		assertEquals(0, result, "checking count");
 	}
@@ -50,7 +50,7 @@ class TestCountPriority {
 		tasks.add(new Task("name", "description", TaskPriority.HIGH));
 		tasks.add(new Task("name", "description", TaskPriority.HIGH));
 		
-		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
+		int result = Comic.countOfPriority(TaskPriority.HIGH, tasks);
 		
 		assertEquals(2, result, "checking count");
 	}
@@ -61,7 +61,7 @@ class TestCountPriority {
 		tasks.add(new Task("name", "description", TaskPriority.HIGH));
 		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
 		
-		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
+		int result = Comic.countOfPriority(TaskPriority.HIGH, tasks);
 		
 		assertEquals(1, result, "checking count");
 	}
@@ -72,7 +72,7 @@ class TestCountPriority {
 		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
 		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
 		
-		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
+		int result = Comic.countOfPriority(TaskPriority.HIGH, tasks);
 		
 		assertEquals(0, result, "checking count");
 	}
