@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import edu.westga.cs1302.task_tracker.model.Collection;
 import edu.westga.cs1302.task_tracker.model.Comic;
+import edu.westga.cs1302.task_tracker.viewmodel.FindComicWindowViewModel;
 import edu.westga.cs1302.task_tracker.viewmodel.MainWindowViewModel;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -32,6 +33,7 @@ public class MainWindow {
     @FXML private TextField name;
     @FXML private Button removeCollectionButton;
     @FXML private Button removeComicButton;
+    @FXML private Button searchComicButton;
     @FXML private MenuItem removeCollectionMenu;
     @FXML private MenuItem removeComicMenu;
     
@@ -104,6 +106,27 @@ public class MainWindow {
     @FXML
     void removeComic(ActionEvent event) {
     	this.vm.removeSelectedComic();
+    }
+    
+    @FXML
+    void searchComic(ActionEvent event) {
+    	Collection selectedCollection = this.vm.selectedCollection().get();
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FindComicWindow.fxml"));
+            Parent root = loader.load();
+            FindComicWindowViewModel findVm = new FindComicWindowViewModel(selectedCollection);
+
+            FindComicWindow controller = loader.getController();
+            controller.setViewModel(findVm);
+
+            Stage stage = new Stage();
+            stage.setTitle("Find Comic");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (IOException error) {
+            System.out.println("Failed to open Find Comic window: " + error.getMessage());
+        }
     }
 
     /** Perform any needed initialization of UI components and underlying objects.
